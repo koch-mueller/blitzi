@@ -2,6 +2,8 @@
 
 Blitzi is a privacy-friendly educational web prototype that presents common lightning-protection factors through an accessible, multi-step assessment.
 
+[Open the live Blitzi demo](https://koch-mueller.github.io/blitzi/)
+
 ![Blitzi mascot](1.svg)
 
 ## About the project
