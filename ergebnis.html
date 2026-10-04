@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Transparente Blitzi-Demoauswertung der ausgewählten Gebäudefaktoren.">
+  <title>Blitzi – Auswertung</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="model.js" defer></script>
+  <script src="results.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Blitzi Startseite">
+      <span class="brand-mark" aria-hidden="true">ϟ</span>
+      Blitzi
+    </a>
+    <a class="header-link" href="stepwizard.html">Eingaben ändern</a>
+  </header>
+
+  <main class="shell">
+    <div class="result-heading">
+      <p class="eyebrow">Transparente Demo-Auswertung</p>
+      <h1>Dein Blitzi-Profil</h1>
+      <p>Jeder verwendete Faktor wird offengelegt. Der Wert ist eine didaktische Orientierung innerhalb dieses Prototyps.</p>
+    </div>
+
+    <div id="result-content" hidden>
+      <div class="results-layout">
+        <section class="result-card score-panel" aria-labelledby="result-level">
+          <div class="score-ring" id="score-ring">
+            <div class="score-value"><span id="score-value">0</span><small>von 100</small></div>
+          </div>
+          <h2 id="result-level">–</h2>
+          <p id="result-summary">–</p>
+          <img class="mascot-result" src="4.GIF" alt="Animiertes Blitzi-Maskottchen während der Auswertung">
+        </section>
+
+        <section class="result-card details-panel">
+          <div class="details-section">
+            <h2>So entsteht der Wert</h2>
+            <div class="breakdown" id="breakdown"></div>
+          </div>
+
+          <div class="details-section">
+            <h2>Sinnvolle nächste Schritte</h2>
+            <ul class="recommendation-list" id="recommendations"></ul>
+          </div>
+
+          <div class="details-section">
+            <h2>Grenzen der Auswertung</h2>
+            <div class="notice">
+              Blitzi ist ein Hochschul- und Portfolio-Prototyp. Die Punktwerte sind ein bewusst vereinfachtes Demonstrationsmodell – keine statistische Einschlagwahrscheinlichkeit, technische Planung, Rechtsauskunft oder Versicherungsberatung. Eine verbindliche Bewertung kann nur eine qualifizierte Fachperson anhand des konkreten Gebäudes und der geltenden Vorgaben erstellen.
+            </div>
+            <div class="button-row">
+              <a class="button button-primary" id="edit-link" href="stepwizard.html">Eingaben ändern</a>
+              <button class="button button-secondary" type="button" id="restart-button">Neue Einschätzung</button>
+              <a class="button button-secondary" href="index.html">Zur Startseite</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <section class="result-card empty-state" id="empty-state" hidden>
+      <h2>Noch keine Auswertung vorhanden</h2>
+      <p>Starte zuerst die kurze Blitzi-Einschätzung.</p>
+      <a class="button button-primary" href="stepwizard.html">Einschätzung starten</a>
+    </section>
+  </main>
+</body>
+</html>

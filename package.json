@@ -1,0 +1,12 @@
+{
+  "name": "blitzi",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Privacy-friendly educational lightning-protection assessment prototype.",
+  "scripts": {
+    "test": "node --test tests/model.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

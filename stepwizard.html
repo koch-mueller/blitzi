@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interaktive Blitzi-Einschätzung ohne Adress- oder Netzwerkdaten.">
+  <title>Blitzi – Einschätzung</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="model.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Blitzi Startseite">
+      <span class="brand-mark" aria-hidden="true">ϟ</span>
+      Blitzi
+    </a>
+    <a class="header-link" href="index.html">Zur Startseite</a>
+  </header>
+
+  <main class="shell">
+    <div class="page-heading">
+      <p class="eyebrow">Lokale Demo-Auswertung</p>
+      <h1>Dein Gebäudeprofil</h1>
+      <p>Wähle die Aussagen, die am besten passen. Es werden keine personenbezogenen Daten oder Adressen benötigt.</p>
+    </div>
+
+    <div class="wizard-layout">
+      <aside class="progress-panel" aria-label="Fortschritt">
+        <p class="progress-label" id="progress-label">Schritt 1 von 8</p>
+        <nav class="stepper" id="stepper">
+          <button class="step-dot active" type="button" data-step="0" aria-current="step">
+            <span class="step-dot-number">1</span><span class="step-dot-label">Region</span>
+          </button>
+          <button class="step-dot" type="button" data-step="1">
+            <span class="step-dot-number">2</span><span class="step-dot-label">Lage</span>
+          </button>
+          <button class="step-dot" type="button" data-step="2">
+            <span class="step-dot-number">3</span><span class="step-dot-label">Gebäude</span>
+          </button>
+          <button class="step-dot" type="button" data-step="3">
+            <span class="step-dot-number">4</span><span class="step-dot-label">Material</span>
+          </button>
+          <button class="step-dot" type="button" data-step="4">
+            <span class="step-dot-number">5</span><span class="step-dot-label">Nutzung</span>
+          </button>
+          <button class="step-dot" type="button" data-step="5">
+            <span class="step-dot-number">6</span><span class="step-dot-label">Technik</span>
+          </button>
+          <button class="step-dot" type="button" data-step="6">
+            <span class="step-dot-number">7</span><span class="step-dot-label">Sachwert</span>
+          </button>
+          <button class="step-dot" type="button" data-step="7">
+            <span class="step-dot-number">8</span><span class="step-dot-label">Prüfen</span>
+          </button>
+        </nav>
+      </aside>
+
+      <form class="wizard-card" id="assessment-form">
+        <section class="wizard-step active" data-step="0" aria-labelledby="step-1-title">
+          <p class="step-kicker">Schritt 1 · Region</p>
+          <h2 id="step-1-title">Wie häufig erlebst du Gewitter in deiner Region?</h2>
+          <p class="step-description">Eine grobe Selbsteinschätzung genügt. Blitzi fragt bewusst keine genaue Adresse ab.</p>
+          <fieldset class="option-grid three">
+            <legend class="screen-reader-only">Regionale Gewitterhäufigkeit</legend>
+            <label class="option-card">
+              <input type="radio" name="activity" value="low" required>
+              <span class="option-title">Eher selten</span>
+              <span class="option-description">Gewitter treten nur gelegentlich auf.</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="activity" value="medium" required>
+              <span class="option-title">Durchschnittlich</span>
+              <span class="option-description">Regelmäßige Gewitter während der Saison.</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="activity" value="high" required>
+              <span class="option-title">Häufig</span>
+              <span class="option-description">Vergleichsweise viele oder kräftige Gewitter.</span>
+            </label>
+          </fieldset>
+          <div class="wizard-actions">
+            <a class="button button-secondary" href="index.html">Abbrechen</a>
+            <button class="button button-primary" type="button" data-next>Weiter</button>
+          </div>
+        </section>
+
+        <section class="wizard-step" data-step="1" aria-labelledby="step-2-title">
+          <p class="step-kicker">Schritt 2 · Lage</p>
+          <h2 id="step-2-title">Wie steht das Gebäude in seiner Umgebung?</h2>
+          <p class="step-description">Freie und erhöhte Standorte werden in diesem Demonstrationsmodell stärker gewichtet.</p>
+          <fieldset class="option-grid">
+            <legend class="screen-reader-only">Gebäudelage</legend>
+            <label class="option-card"><input type="radio" name="location" value="city" required><span class="option-title">Dichte Stadtlage</span><span class="option-description">Viele ähnlich hohe oder höhere Gebäude in der Nähe.</span></label>
+            <label class="option-card"><input type="radio" name="location" value="suburb" required><span class="option-title">Wohnsiedlung</span><span class="option-description">Weitere Gebäude stehen in der direkten Umgebung.</span></label>
+            <label class="option-card"><input type="radio" name="location" value="open" required><span class="option-title">Freistehend</span><span class="option-description">Wenige Gebäude oder hohe Objekte in der Nähe.</span></label>
+            <label class="option-card"><input type="radio" name="location" value="elevated" required><span class="option-title">Erhöhte Lage</span><span class="option-description">Das Gebäude liegt deutlich höher als die Umgebung.</span></label>
+          </fieldset>
+          <div class="wizard-actions"><button class="button button-secondary" type="button" data-back>Zurück</button><button class="button button-primary" type="button" data-next>Weiter</button></div>
+        </section>
+
+        <section class="wizard-step" data-step="2" aria-labelledby="step-3-title">
+          <p class="step-kicker">Schritt 3 · Gebäude</p>
+          <h2 id="step-3-title">Wie groß und hoch ist das Gebäude?</h2>
+          <p class="step-description">Wähle jeweils die am besten passende Größenordnung.</p>
+          <fieldset class="option-grid">
+            <legend class="field-legend">Ungefähre Grundfläche</legend>
+            <label class="option-card"><input type="radio" name="area" value="small" required><span class="option-title">Unter 100 m²</span></label>
+            <label class="option-card"><input type="radio" name="area" value="medium" required><span class="option-title">100–200 m²</span></label>
+            <label class="option-card"><input type="radio" name="area" value="large" required><span class="option-title">200–400 m²</span></label>
+            <label class="option-card"><input type="radio" name="area" value="very-large" required><span class="option-title">Über 400 m²</span></label>
+          </fieldset>
+          <fieldset class="option-grid three" style="margin-top: 24px">
+            <legend class="field-legend">Ungefähre Höhe</legend>
+            <label class="option-card"><input type="radio" name="height" value="low" required><span class="option-title">Unter 10 m</span></label>
+            <label class="option-card"><input type="radio" name="height" value="medium" required><span class="option-title">10–20 m</span></label>
+            <label class="option-card"><input type="radio" name="height" value="high" required><span class="option-title">Über 20 m</span></label>
+          </fieldset>
+          <div class="wizard-actions"><button class="button button-secondary" type="button" data-back>Zurück</button><button class="button button-primary" type="button" data-next>Weiter</button></div>
+        </section>
+
+        <section class="wizard-step" data-step="3" aria-labelledby="step-4-title">
+          <p class="step-kicker">Schritt 4 · Material</p>
+          <h2 id="step-4-title">Welche Bauweise passt am ehesten?</h2>
+          <p class="step-description">Hier geht es nur um eine grobe Einordnung der möglichen Schadensanfälligkeit.</p>
+          <fieldset class="option-grid three">
+            <legend class="screen-reader-only">Bauweise</legend>
+            <label class="option-card"><input type="radio" name="material" value="solid" required><span class="option-title">Massivbau</span><span class="option-description">Zum Beispiel Mauerwerk, Beton oder Ziegel.</span></label>
+            <label class="option-card"><input type="radio" name="material" value="wood" required><span class="option-title">Holzbau</span><span class="option-description">Überwiegend aus Holz errichtet.</span></label>
+            <label class="option-card"><input type="radio" name="material" value="thatch" required><span class="option-title">Weiche Bedachung</span><span class="option-description">Zum Beispiel Reet oder ein vergleichbares Material.</span></label>
+          </fieldset>
+          <div class="wizard-actions"><button class="button button-secondary" type="button" data-back>Zurück</button><button class="button button-primary" type="button" data-next>Weiter</button></div>
+        </section>
+
+        <section class="wizard-step" data-step="4" aria-labelledby="step-5-title">
+          <p class="step-kicker">Schritt 5 · Nutzung</p>
+          <h2 id="step-5-title">Wie intensiv wird das Gebäude genutzt?</h2>
+          <p class="step-description">Die Nutzung verändert nicht die Einschlagwahrscheinlichkeit, hilft aber bei der Einordnung möglicher Auswirkungen.</p>
+          <fieldset class="option-grid">
+            <legend class="screen-reader-only">Gebäudenutzung</legend>
+            <label class="option-card"><input type="radio" name="occupancy" value="occasional" required><span class="option-title">Gelegentlich</span><span class="option-description">Zum Beispiel Ferien- oder Wochenendhaus.</span></label>
+            <label class="option-card"><input type="radio" name="occupancy" value="one-two" required><span class="option-title">1–2 Personen</span><span class="option-description">Regelmäßig bewohnt.</span></label>
+            <label class="option-card"><input type="radio" name="occupancy" value="three-four" required><span class="option-title">3–4 Personen</span><span class="option-description">Regelmäßig und intensiv genutzt.</span></label>
+            <label class="option-card"><input type="radio" name="occupancy" value="five-plus" required><span class="option-title">5 oder mehr</span><span class="option-description">Viele Personen oder sehr intensive Nutzung.</span></label>
+          </fieldset>
+          <div class="wizard-actions"><button class="button button-secondary" type="button" data-back>Zurück</button><button class="button button-primary" type="button" data-next>Weiter</button></div>
+        </section>
+
+        <section class="wizard-step" data-step="5" aria-labelledby="step-6-title">
+          <p class="step-kicker">Schritt 6 · Technik</p>
+          <h2 id="step-6-title">Welche technische Ausstattung ist vorhanden?</h2>
+          <p class="step-description">Gezählt werden größere Anlagen wie Photovoltaik, Wärmepumpe, Wallbox oder umfangreiche Gebäudetechnik.</p>
+          <div class="field-group">
+            <label for="equipment">Anzahl größerer technischer Anlagen</label>
+            <input class="input" id="equipment" name="equipment" type="number" min="0" max="20" step="1" inputmode="numeric" value="0" required>
+            <p class="field-help">Bitte eine ganze Zahl zwischen 0 und 20 eingeben.</p>
+          </div>
+          <label class="checkbox-card">
+            <input id="surge-protection" name="surgeProtection" type="checkbox">
+            <span><strong>Überspannungsschutz vorhanden</strong><span>Wird im Modell als risikomindernde technische Maßnahme berücksichtigt.</span></span>
+          </label>
+          <div class="wizard-actions"><button class="button button-secondary" type="button" data-back>Zurück</button><button class="button button-primary" type="button" data-next>Weiter</button></div>
+        </section>
+
+        <section class="wizard-step" data-step="6" aria-labelledby="step-7-title">
+          <p class="step-kicker">Schritt 7 · Sachwert</p>
+          <h2 id="step-7-title">Wie hoch ist der grobe Gebäudesachwert?</h2>
+          <p class="step-description">Eine Wertspanne reicht aus. Sie wird nur zur Einordnung möglicher finanzieller Auswirkungen verwendet.</p>
+          <fieldset class="option-grid">
+            <legend class="screen-reader-only">Gebäudesachwert</legend>
+            <label class="option-card"><input type="radio" name="valueBand" value="under-200" required><span class="option-title">Unter 200.000 €</span></label>
+            <label class="option-card"><input type="radio" name="valueBand" value="200-400" required><span class="option-title">200.000–400.000 €</span></label>
+            <label class="option-card"><input type="radio" name="valueBand" value="400-800" required><span class="option-title">400.000–800.000 €</span></label>
+            <label class="option-card"><input type="radio" name="valueBand" value="over-800" required><span class="option-title">Über 800.000 €</span></label>
+          </fieldset>
+          <div class="wizard-actions"><button class="button button-secondary" type="button" data-back>Zurück</button><button class="button button-primary" type="button" data-next>Weiter</button></div>
+        </section>
+
+        <section class="wizard-step" data-step="7" aria-labelledby="step-8-title">
+          <p class="step-kicker">Schritt 8 · Prüfen</p>
+          <h2 id="step-8-title">Passt alles?</h2>
+          <p class="step-description">Die Auswertung ist eine transparente Demo-Heuristik und ersetzt keine fachliche Planung oder rechtliche Prüfung.</p>
+          <dl class="review-grid" id="review-grid"></dl>
+          <div class="notice" style="margin-top: 22px">
+            Das Ergebnis beschreibt ausschließlich den Demonstrationswert des Prototyps. Es entscheidet nicht, ob ein Blitzschutzsystem erforderlich oder vorgeschrieben ist.
+          </div>
+          <div class="wizard-actions"><button class="button button-secondary" type="button" data-back>Zurück</button><button class="button button-primary" type="submit">Auswertung anzeigen</button></div>
+        </section>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

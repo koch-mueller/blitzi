@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Blitzi ist ein interaktiver Hochschulprototyp zur verständlichen Darstellung von Einflussfaktoren beim Blitzschutz.">
+  <title>Blitzi – Blitzschutz verständlich erklärt</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Blitzi Startseite">
+      <span class="brand-mark" aria-hidden="true">ϟ</span>
+      Blitzi
+    </a>
+    <a class="header-link" href="#ueber-das-projekt">Über das Projekt</a>
+  </header>
+
+  <main>
+    <section class="shell hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">Interaktiver Hochschulprototyp</p>
+        <h1 id="hero-title">Blitzschutz, einfach erklärt.</h1>
+        <p class="hero-copy">
+          Claudius führt dich durch eine kurze, verständliche Einschätzung typischer
+          Einflussfaktoren. Die Auswertung ist vollständig lokal und benötigt keine Adresse.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="stepwizard.html">Einschätzung starten <span aria-hidden="true">→</span></a>
+          <a class="button button-secondary" href="#ueber-das-projekt">Mehr erfahren</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Blitzi-Maskottchen Claudius">
+        <div class="hero-orbit" aria-hidden="true"></div>
+        <img src="1.svg" alt="Illustration des blauen Wolkenmaskottchens Claudius">
+        <div class="privacy-pill">✓ Keine Adresse<br>✓ Keine Netzwerkabfragen<br>✓ Daten bleiben im Browser</div>
+      </div>
+    </section>
+
+    <section class="shell info-section" id="ueber-das-projekt" aria-labelledby="about-title">
+      <p class="eyebrow">So funktioniert Blitzi</p>
+      <h2 class="section-title" id="about-title">Ein komplexes Thema als zugänglicher Prototyp.</h2>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <img src="1.svg" alt="Claudius begleitet die Eingabe">
+          <h2>Geführt</h2>
+          <p>Ein mehrstufiger Fragebogen erklärt, welche Gebäude- und Standortmerkmale die Einschätzung beeinflussen.</p>
+        </article>
+
+        <article class="feature-card">
+          <img src="2.svg" alt="Claudius veranschaulicht mögliche Auswirkungen">
+          <h2>Nachvollziehbar</h2>
+          <p>Die Auswertung zeigt alle verwendeten Faktoren und ihre Gewichtung, statt ein verborgenes Ergebnis auszugeben.</p>
+        </article>
+
+        <article class="feature-card">
+          <img src="3.svg" alt="Claudius steht für einen bewussten Umgang mit Blitzschutz">
+          <h2>Datensparsam</h2>
+          <p>Blitzi verarbeitet keine genaue Adresse. Alle Eingaben und Ergebnisse bleiben ausschließlich in deinem Browser.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="shell info-section" aria-labelledby="notice-title">
+      <div class="notice">
+        <strong id="notice-title">Wichtiger Hinweis:</strong>
+        Blitzi ist ein didaktischer Softwareprototyp und keine technische Planung,
+        Rechtsauskunft oder individuelle Gefährdungsbeurteilung. Ob Schutzmaßnahmen erforderlich
+        oder vorgeschrieben sind, muss ein qualifizierter Fachbetrieb unter Berücksichtigung der
+        geltenden Vorgaben prüfen.
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    Blitzi · Interaktiver Frontend-Prototyp · Läuft vollständig lokal im Browser
+  </footer>
+</body>
+</html>
